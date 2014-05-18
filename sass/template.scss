@@ -1,12 +1,49 @@
+@import "compass/css3";
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap";
 
-.box {
-    width: 200px;
-    height: 200px;
-    display: block;
-    background: red;
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
 
-    &.two {
-        background: yellow;
+    h1 {
+        font-size: 2.25em;
+        line-height: 1.25em;
+        margin-bottom: 0;
+        font-weight: normal;
     }
+}
+
+section {
+
+    &.home {
+        @include background-size(cover);
+
+        position: relative;
+        top: 0;
+        left: 0;
+
+        background: image-url('home.jpg') no-repeat top center fixed;
+        padding: 14em 0 14em 0;
+        width: 100%;
+        height: auto;
+        color: #fff;
+        margin: 0;
+
+        .btn {
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+        }
+
+        header {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+
+            h1 {
+                text-align: center;
+            }
+        }
+    }
+
+
 }
