@@ -1,19 +1,61 @@
-@import "compass/css3";
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap";
+@import "compass/css3";
 
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 1.5;
 
     h1 {
-        font-size: 2.25em;
+        margin-bottom: 20px;
+        font-size: 45px;
+        font-weight: 100;
+        text-align: center;
         line-height: 1.25em;
-        margin-bottom: 0;
-        font-weight: normal;
+    }
+
+    a {
+        text-decoration: none;
+        border-bottom: 1px #fff dotted;
+
+        &:hover {
+            border-style: none;
+        }
     }
 }
 
 section {
+
+    &.dark {
+        color: #fff;
+
+        a {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    &.light {
+        color: #666;
+
+        a {
+            color: #666;
+            border-color: rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    &.main {
+        padding: 60px 40px;
+
+        h1 {
+            font-size: 3em;
+        }
+    }
 
     &.home {
         @include background-size(cover);
@@ -40,10 +82,28 @@ section {
             z-index: 1;
 
             h1 {
-                text-align: center;
+                margin-bottom: 0;
+            }
+
+            p {
+                margin-top: 30px;
+                font-style: 25px;
             }
         }
     }
 
+    &.about.secondary {
+        @include background-size(cover);
 
+        position: relative;
+        top: 0;
+        left: 0;
+
+        background: image-url('home.jpg') no-repeat top center fixed;
+        width: 100%;
+        height: auto;
+        color: #fff;
+        margin: 0;
+        text-align: center;
+    }
 }
