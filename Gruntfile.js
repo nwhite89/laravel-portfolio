@@ -7,6 +7,7 @@ module.exports = function(grunt) {
                     sassDir: 'sass',
                     cssDir: 'public/assets/css',
                     imagesDir: 'public/assets/img',
+                    fontDir: 'public/assets/fonts',
                     outputStyle: 'compact',
                     force: true,
                     noLineComments: true

@@ -1,5 +1,14 @@
-@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap";
+$white-color: #fef6e9;
+$orange-color: #ed7263;
+$blue-color: #1591ac;
+$green-color: #65beb4;
+$font-color: #343642;
+
+@import "imports/bootstrap";
 @import "compass/css3";
+@import "compass/utilities";
+@include font-face("Ballpark Wiener", font-files("ballpark/ballw___-webfont.ttf", "ballpark/ballw___-webfont.woff"));
+
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -9,40 +18,83 @@ body {
 
     h1 {
         margin-bottom: 20px;
-        font-size: 45px;
+        font-size: 85px;
         font-weight: 100;
         text-align: center;
         line-height: 1.25em;
     }
 
+    h2 {
+        font-size: 50px;
+    }
+
+    h3 {
+        font-size: 35px;
+        text-align: center;
+    }
+
+    #{headers(all)} {
+        font-family: 'Mr Dafoe', cursive;
+    }
+
     a {
         text-decoration: none;
         border-bottom: 1px #fff dotted;
+        @include transition-property(border-color);
+        @include transition-duration(0.2s);
+        @include transition-timing-function(ease-in);
 
         &:hover {
-            border-style: none;
+            border-color: rgba(#fff, 0);
+            text-decoration: none;
         }
     }
 }
 
 section {
+    padding: 50px 0;
 
-    &.dark {
-        color: #fff;
+    &.orange, &.blue, &.green {
+        color: $white-color;
+        background: $orange-color no-repeat top center;
 
         a {
-            color: #fff;
-            border-color: rgba(255, 255, 255, 0.5);
+            color: $white-color;
+            border-color: rgba($white-color, 0.5);
+
+            &:hover {
+                border-color: rgba(#fff, 0);
+            }
+        }
+        #{headers(all)} {
+            color: $white-color;
         }
     }
 
-    &.light {
-        color: #666;
+    &.white {
+        background: $white-color no-repeat top center;
+        #{headers(all)} {
+            @include text-shadow(rgba($white-color, 0.2) 1px 1px 0, rgba($white-color, 0.2) 2px 2px 0, rgba($white-color, 0.2) 3px 3px 0);
 
-        a {
-            color: #666;
-            border-color: rgba(0, 0, 0, 0.5);
+            color: $orange-color;
         }
+
+        .icon {
+            color: $orange-color;
+
+            i {
+                @include text-shadow(rgba($white-color, 0.2) 1px 1px 0, rgba($white-color, 0.2) 2px 2px 0, rgba($white-color, 0.2) 3px 3px 0);
+            }
+
+        }
+    }
+
+    &.green {
+        background: $green-color no-repeat top center;
+    }
+
+    &.blue {
+        background: $blue-color no-repeat top center;
     }
 
     p {
@@ -58,23 +110,15 @@ section {
     }
 
     &.home {
-        @include background-size(cover);
-
         position: relative;
         top: 0;
         left: 0;
 
-        background: image-url('home.jpg') no-repeat top center fixed;
-        padding: 14em 0 14em 0;
+        padding: 14em 0 12em 0;
         width: 100%;
         height: auto;
-        color: #fff;
+        color: $white-color;
         margin: 0;
-
-        .btn {
-            background: rgba(255,255,255,0.2);
-            color: #fff;
-        }
 
         header {
             text-align: center;
@@ -92,18 +136,135 @@ section {
         }
     }
 
-    &.about.secondary {
-        @include background-size(cover);
-
+    &.about {
         position: relative;
         top: 0;
         left: 0;
 
-        background: image-url('home.jpg') no-repeat top center fixed;
         width: 100%;
         height: auto;
-        color: #fff;
+        color: $font-color;
         margin: 0;
         text-align: center;
+
+        .me {
+            text-align: justify;
+        }
+
+        .icon {
+            font-size: 60px;
+            padding-bottom: 25px;
+
+            i {
+                @include border-radius(150px);
+
+                line-height: 120px;
+                width: 120px;
+                height: 120px;
+                border: 1px solid rgba($orange-color, 0.5);
+                background-color: rgba(#fff, 0.2);
+            }
+        }
+
+        ul {
+            padding: 0;
+            margin: 0 0 40px;
+
+            &.skills {
+                @include no-bullets();
+            }
+
+            li {
+                margin-bottom: 10px;
+            }
+
+        }
     }
+
+    &.portfolio {
+        text-align: center;
+
+        .work {
+            $circle-size: 200px;
+
+            @include border-radius($circle-size);
+            @include text-shadow(rgba($white-color, 0.25) 0 -1px 0);
+            @include box-shadow(rgba(50, 50, 50, 0.4) 0px 6px 20px 0px);
+
+
+            background-color: $green-color;
+            border: 1px solid rgba($white-color, 0.5);
+            font-size: 15px;
+            width: $circle-size;
+            height: $circle-size;
+            line-height: $circle-size;
+            margin: auto auto 40px auto;
+            color: $white-color;
+            text-align: center;
+            margin-top: 20px;
+            cursor: pointer;
+            letter-spacing: .1em;
+        }
+    }
+
+    &.get-in-touch {
+        h1 {
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: $white-color;
+
+            .fa-inverse {
+                color: $green-color;
+            }
+
+            &:hover {
+                color: $blue-color;
+
+                .fa-inverse {
+                    color: $white-color;
+                }
+            }
+        }
+
+        .btn-default {
+            &:hover {
+                background: $blue-color;
+                color: $white-color;
+            }
+        }
+
+        ul {
+            @include horizontal-list(10px, left);
+
+            width: 350px;
+            margin: 0 auto;
+
+            &.icons {
+                a {
+                    border: none;
+
+                    i {
+                        @include transition-property(color);
+                        @include transition-duration(0.2s);
+                        @include transition-timing-function(ease-in);
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+    color: $white-color;
+    background-color: #2f2f2f;
 }
