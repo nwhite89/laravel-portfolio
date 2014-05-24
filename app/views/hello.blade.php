@@ -69,7 +69,9 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <h1>Instagram</h1>
+                    @foreach ($instagrams as $instagram)
+                        <img class="instagram-image" src="{{ $instagram->thumbnail_url }}" alt="" width="150" height="150">
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -80,26 +82,14 @@
                 <div class="col-md-12">
                     <h1>Portfolio</h1>
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="work">
-                                Mobile London NodeJS
+                        @foreach ($projects as $project)
+                            <div class="col-md-4">
+                                <div class="work">
+                                    <p>{{ $project->title }}</p>
+                                    <div class="image" style="background-image: url(http://toxicd.co.uk{{ $project->thumbnail }})"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="work">
-                                Mentos Money Maker
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="work">
-                                Better World Walk
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="work">
-                                Learning Journey
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
