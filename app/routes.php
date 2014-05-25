@@ -12,13 +12,7 @@
 */
 
 Route::get('/', function() {
-    $projects = DB::table('td_development')
-        ->orderBy('date', 'DESC')
-        ->where('published', '!=','1')
-        ->get();
-
-	return View::make('hello')
-        ->with('projects', $projects);
+	return View::make('hello');
 });
 
 Route::get('/api/instagram', function() {
@@ -27,4 +21,13 @@ Route::get('/api/instagram', function() {
         ->get();
 
     return Response::json($instagrams);
+});
+
+Route::get('/api/projects', function () {
+    $projects = DB::table('td_development')
+        ->orderBy('date', 'DESC')
+        ->where('published', '!=','1')
+        ->get();
+
+    return Response::json($projects);
 });

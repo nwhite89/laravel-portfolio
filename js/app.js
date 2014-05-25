@@ -43,6 +43,9 @@ var portfolioApp = angular
             };
         }
     ])
+    .factory('projectResource', ['$resource', function($resource) {
+        return $resource('api/projects', {});
+    }])
     .factory('instagramResource', ['$resource', function($resource) {
         return $resource('api/instagram', {});
     }])
@@ -53,4 +56,16 @@ var portfolioApp = angular
                 $scope.instagram = response;
             });
         }
-    ]);
+    ])
+    .controller('portfolio', ['$scope', 'projectResource',
+        function ($scope, projectResource) {
+            $scope.projects = {};
+            projectResource.query(function (response) {
+                $scope.projects = response;
+            });
+        }
+    ])
+    .controller('footer', ['$scope', function ($scope) {
+        var date = new Date();
+        $scope.year = date.getFullYear();
+    }]);

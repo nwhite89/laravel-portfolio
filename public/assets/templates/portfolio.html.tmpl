@@ -4,14 +4,14 @@
             <div class="col-md-12">
                 <h1>Portfolio</h1>
                 <div class="row">
-                    <!-- @foreach ($projects as $project)
-                    <div class="col-md-4">
+                    <div class="col-md-4" ng-repeat="project in projects">
                         <div class="work">
-                            <p>{{ $project->title }}</p>
-                            <div class="image" style="background-image: url(http://toxicd.co.uk{{ $project->thumbnail }})"></div>
+                            <p>
+                                {{ project.title }}
+                            </p>
+                            <div class="image" style="background-image: url(http://toxicd.co.uk{{ project.thumbnail }})"></div>
                         </div>
                     </div>
-                    @endforeach -->
                 </div>
             </div>
         </div>

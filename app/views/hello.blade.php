@@ -16,8 +16,12 @@
     <div ng-controller="about">
         <aboutblock></aboutblock>
     </div>
-    <portfolioblock></portfolioblock>
+    <div ng-controller="portfolio">
+        <portfolioblock></portfolioblock>
+    </div>
     <getintouchblock></getintouchblock>
-    <footerblock></footerblock>
+    <div ng-controller="footer">
+        <footerblock></footerblock>
+    </div>
 </body>
 </html>
