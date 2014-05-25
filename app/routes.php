@@ -11,18 +11,20 @@
 |
 */
 
-Route::get('/', function()
-{
-    $instagrams = DB::table('td_instagram_cache')
-        ->take(6)
-        ->get();
-
+Route::get('/', function() {
     $projects = DB::table('td_development')
         ->orderBy('date', 'DESC')
         ->where('published', '!=','1')
         ->get();
 
 	return View::make('hello')
-        ->with('instagrams', $instagrams)
         ->with('projects', $projects);
+});
+
+Route::get('/api/instagram', function() {
+    $instagrams = DB::table('td_instagram_cache')
+        ->take(6)
+        ->get();
+
+    return Response::json($instagrams);
 });

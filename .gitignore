@@ -8,4 +8,5 @@ node_modules
 bower_components
 .sass-cache
 public/assets/css
+public/assets/js
 app/config/database.php
