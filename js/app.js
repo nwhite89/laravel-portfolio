@@ -57,15 +57,33 @@ var portfolioApp = angular
             });
         }
     ])
-    .controller('portfolio', ['$scope', 'projectResource',
-        function ($scope, projectResource) {
+    .controller('portfolio', ['$scope', '$sce', 'projectResource',
+        function ($scope, $sce, projectResource) {
+
+            $scope.portfolio = true;
+            $scope.project = false;
+
             $scope.projects = {};
             projectResource.query(function (response) {
                 $scope.projects = response;
             });
+
+            $scope.showPortfolio = function (pid) {
+                $scope.portfolio = false;
+                $scope.project = true;
+
+
+                $scope.showProject = _.findWhere($scope.projects, {id: pid});
+                $scope.projectText = $sce.trustAsHtml($scope.showProject.text);
+            };
         }
     ])
     .controller('footer', ['$scope', function ($scope) {
         var date = new Date();
         $scope.year = date.getFullYear();
-    }]);
+    }])
+    .filter('unsafe', function($sce) {
+        return function(val) {
+            return $sce.trustAsHtml(val);
+        };
+    });

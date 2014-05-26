@@ -1,11 +1,11 @@
 <section class="portfolio blue">
     <div class="container">
-        <div class="row">
+        <div class="row" ng-show="portfolio">
             <div class="col-md-12">
                 <h1>Portfolio</h1>
                 <div class="row">
                     <div class="col-md-4" ng-repeat="project in projects">
-                        <div class="work">
+                        <div class="work" ng-click="showPortfolio(project.id)">
                             <p>
                                 {{ project.title }}
                             </p>
@@ -13,6 +13,21 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row" ng-show="project">
+            <div class="close">
+                <a href="" class="fa fa-times" ng-click="project=false; portfolio=true"></a>
+            </div>
+            <h1>{{ showProject.title }}</h1>
+            <img ng-src="assets{{ showProject.image }}" alt="Image of {{ showProject.title }}">
+
+            <div class="link">
+                <a ng-if="showProject.url !== ''" href="{{ showProject.url }}" class="site-link">Go to Site</a>
+            </div>
+
+            <div class="aboutProject">
+                <p ng-bind-html="projectText"></p>
             </div>
         </div>
     </div>
