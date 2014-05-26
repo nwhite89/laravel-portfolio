@@ -1,5 +1,5 @@
 $white-color: #fef6e9;
-$orange-color: #ed7263;
+$red-color: #e64141;
 $blue-color: #1591ac;
 $green-color: #65beb4;
 $font-color: #343642;
@@ -54,9 +54,9 @@ body {
 section {
     padding: 50px 0;
 
-    &.orange, &.blue, &.green {
+    &.red, &.blue, &.green {
         color: $white-color;
-        background: $orange-color no-repeat top center;
+        background: $red-color no-repeat top center;
 
         a {
             color: $white-color;
@@ -73,14 +73,24 @@ section {
 
     &.white {
         background: $white-color no-repeat top center;
+
+        a {
+            color: $red-color;
+            border-color: rgba($red-color, 0.5);
+
+            &:hover {
+                border-color: rgba(#fff, 0);
+            }
+        }
+
         #{headers(all)} {
             @include text-shadow(rgba($white-color, 0.2) 1px 1px 0, rgba($white-color, 0.2) 2px 2px 0, rgba($white-color, 0.2) 3px 3px 0);
 
-            color: $orange-color;
+            color: $red-color;
         }
 
         .icon {
-            color: $orange-color;
+            color: $red-color;
 
             i {
                 @include text-shadow(rgba($white-color, 0.2) 1px 1px 0, rgba($white-color, 0.2) 2px 2px 0, rgba($white-color, 0.2) 3px 3px 0);
@@ -99,6 +109,10 @@ section {
 
     p {
         margin-bottom: 20px;
+
+        &.center {
+            text-align: center;
+        }
     }
 
     &.main {
@@ -161,7 +175,7 @@ section {
                 line-height: 120px;
                 width: 120px;
                 height: 120px;
-                border: 1px solid rgba($orange-color, 0.5);
+                border: 1px solid rgba($red-color, 0.5);
                 background-color: rgba(#fff, 0.2);
             }
         }
@@ -179,18 +193,24 @@ section {
             }
         }
 
-        .instagram-image {
-            @include filter(saturate(0%) blur(0px));
+        span {
+            display: inline-block;
+            margin-right: 10px;
+
+            .instagram-image {
+                @include filter(saturate(0%) blur(0px));
 
 
-            &:hover {
-                @include filter(none);
-                -moz-transition: -moz-filter 2s;
-                -ms-transition: -ms-filter 2s;
-                -o-transition: -o-filter 2s;
-                transition: filter 2s;
-                -webkit-transition: -webkit-filter 2s;
+                &:hover {
+                    @include filter(none);
+                    -moz-transition: -moz-filter 2s;
+                    -ms-transition: -ms-filter 2s;
+                    -o-transition: -o-filter 2s;
+                    transition: filter 2s;
+                    -webkit-transition: -webkit-filter 2s;
+                }
             }
+
         }
     }
 
