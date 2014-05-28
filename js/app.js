@@ -3,10 +3,20 @@ var portfolioApp = angular
     .module('portfoilo', [
         'ngResource'
     ])
+    .directive('navblock', [
+        function () {
+            return {
+                'restrict': 'E',
+                'replace': true,
+                'templateUrl': STATIC_URL + 'templates/nav.html.tmpl'
+            };
+        }
+    ])
     .directive('homeblock', [
         function () {
             return {
                 'restrict': 'E',
+                'replace': true,
                 'templateUrl': STATIC_URL + 'templates/home.html.tmpl'
             };
         }
@@ -15,6 +25,7 @@ var portfolioApp = angular
         function () {
             return {
                 'restrict': 'E',
+                'replace': true,
                 'templateUrl': STATIC_URL + 'templates/about.html.tmpl'
             };
         }
@@ -23,6 +34,7 @@ var portfolioApp = angular
         function () {
             return {
                 'restrict': 'E',
+                'replace': true,
                 'templateUrl': STATIC_URL + 'templates/portfolio.html.tmpl'
             };
         }
@@ -31,6 +43,7 @@ var portfolioApp = angular
         function () {
             return {
                 'restrict': 'E',
+                'replace': true,
                 'templateUrl': STATIC_URL + 'templates/get-in-touch.html.tmpl'
             };
         }
@@ -39,6 +52,7 @@ var portfolioApp = angular
         function () {
             return {
                 'restrict': 'E',
+                'replace': true,
                 'templateUrl': STATIC_URL + 'templates/footer.html.tmpl'
             };
         }

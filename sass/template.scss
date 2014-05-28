@@ -2,7 +2,10 @@ $white-color: #fef6e9;
 $red-color: #e64141;
 $blue-color: #1591ac;
 $green-color: #65beb4;
+$black-color: #2f2f2f;
 $font-color: #343642;
+$font-roboto: 'Roboto', sans-serif;
+$font-dafoe: 'Mr Dafoe', cursive;
 
 @import "imports/bootstrap";
 @import "compass/css3";
@@ -11,7 +14,7 @@ $font-color: #343642;
 
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: $font-roboto;
     font-size: 20px;
     font-weight: 100;
     line-height: 1.5;
@@ -34,20 +37,80 @@ body {
     }
 
     #{headers(all)} {
-        font-family: 'Mr Dafoe', cursive;
+        font-family: $font-dafoe;
+    }
+
+    section {
+        a {
+            text-decoration: none;
+            border-bottom: 1px #fff dotted;
+            @include transition-property(border-color);
+            @include transition-duration(0.2s);
+            @include transition-timing-function(ease-in);
+
+            &:hover {
+                border-color: rgba(#fff, 0);
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+nav {
+
+    &.navbar-inverse {
+        .navbar-nav {
+            > li {
+                a {
+                    &:hover {
+
+                        &.about {
+                            background-color: $white-color;
+                            color: $red-color;
+                        }
+
+                        &.portfolio {
+                            background-color: $blue-color;
+                        }
+
+                        &.getintouch {
+                            background-color: $green-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar-brand {
+        font-family: $font-dafoe;
+        font-size: 45px;
+
+        &.hide {
+            display: block;
+        }
+    }
+
+    .container {
+        position: relative;
+    }
+
+    .logo {
+        @include border-bottom-left-radius(15px);
+        @include border-bottom-right-radius(15px);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 150px;
+        height: 150px;
+        display: block;
+        border: 5px solid $black-color;
+        background: transparent url('https://s.gravatar.com/avatar/282f092daba9c0075331450e55149ef4?s=150') left top no-repeat;
     }
 
     a {
-        text-decoration: none;
-        border-bottom: 1px #fff dotted;
-        @include transition-property(border-color);
-        @include transition-duration(0.2s);
-        @include transition-timing-function(ease-in);
-
-        &:hover {
-            border-color: rgba(#fff, 0);
-            text-decoration: none;
-        }
+        text-transform: capitalize;
     }
 }
 
@@ -146,6 +209,7 @@ section {
             p {
                 margin-top: 30px;
                 font-style: 25px;
+                font-weight: 300;
             }
         }
     }
@@ -170,13 +234,9 @@ section {
             padding-bottom: 25px;
 
             i {
-                @include border-radius(150px);
-
                 line-height: 120px;
                 width: 120px;
                 height: 120px;
-                border: 1px solid rgba($red-color, 0.5);
-                background-color: rgba(#fff, 0.2);
             }
         }
 
@@ -216,6 +276,10 @@ section {
 
     &.portfolio {
         text-align: center;
+
+        .row {
+            position: relative;
+        }
 
         .work {
             $circle-size: 200px;
@@ -272,6 +336,22 @@ section {
         .aboutProject {
             p {
                 text-align: justify;
+            }
+        }
+
+        .close {
+            @include opacity(1);
+
+            font-size: 50px;
+            position: absolute;
+            right: 0;
+
+            &:hover {
+                @include opacity(0.5);
+            }
+
+            a {
+                border: none;
             }
         }
     }
@@ -335,5 +415,5 @@ footer {
     padding: 10px;
     text-align: center;
     color: $white-color;
-    background-color: #2f2f2f;
+    background-color: $black-color;
 }

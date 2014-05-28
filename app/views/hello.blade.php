@@ -11,9 +11,12 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-resource.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-sanitize.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="assets/js/app.min.js"></script>
 </head>
 <body ng-app="portfoilo">
+    <navblock></navblock>
     <homeblock></homeblock>
     <div ng-controller="about">
         <aboutblock></aboutblock>
