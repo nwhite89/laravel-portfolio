@@ -9,7 +9,7 @@
                             <p>
                                 {{ project.title }}
                             </p>
-                            <div class="image" style="background-image: url(http://toxicd.co.uk{{ project.thumbnail }})"></div>
+                            <div class="image" style="background-image: url({{ STATIC_URL }}{{ project.thumbnail }})"></div>
                         </div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                 <a href="" class="fa fa-times" ng-click="project=false; portfolio=true"></a>
             </div>
             <h1>{{ showProject.title }}</h1>
-            <img ng-src="assets{{ showProject.image }}" alt="Image of {{ showProject.title }}">
+            <img class="project-image" ng-src="{{ STATIC_URL }}{{ showProject.image }}" alt="Image of {{ showProject.title }}">
 
             <div class="link">
                 <a ng-if="showProject.url !== ''" href="{{ showProject.url }}" class="site-link">Go to Site</a>
