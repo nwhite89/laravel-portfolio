@@ -1,0 +1,17 @@
+{
+    "browser"       : true,
+
+    "debug"         : false,
+    "devel"         : true,
+
+    "evil"          : false,
+    "regexdash"     : true,
+    "trailing"      : true,
+    "sub"           : true,
+    "eqeqeq"        : false,
+
+    "indent"        : 4,
+    "maxlen"        : 80,
+    "quotmark"      : "single",
+    "camelcase"     : true
+}
