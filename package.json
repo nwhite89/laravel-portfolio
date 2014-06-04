@@ -1,29 +1,28 @@
 {
-    "name": "nwhite",
-    "version": "0.0.1",
-    "description": "My personal portfolio",
-    "main": "index.js",
-    "repository" : {
-        "type" : "git",
-        "url" : "https://github.com/nwhite89/ci-sass-startup.git"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-        },
-    "author": "Nick White <nickswhite89@gmail.com>",
-    "license": "MIT",
-    "dependencies": {
-        "grunt": "~0.4.4",
-        "grunt-exec": "~0.4.5",
-        "grunt-contrib-jshint": "~0.10.0",
-        "grunt-contrib-nodeunit": "~0.3.3",
-        "grunt-contrib-uglify": "~0.4.0",
-        "grunt-contrib-watch": "~0.4.3",
-        "grunt-contrib-compass": "~0.7.1",
-        "time-grunt": "~0.3.1",
-        "bower": "~1.3.3"
-    },
-    "scripts": {
-        "postinstall": "./node_modules/bower/bin/bower install --config.interactive=0"
-    }
+  "name": "nwhite",
+  "version": "0.0.1",
+  "description": "My personal portfolio",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nwhite89/ci-sass-startup.git"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install --config.interactive=0"
+  },
+  "author": "Nick White <nickswhite89@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-exec": "~0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-nodeunit": "~0.3.3",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-watch": "~0.4.3",
+    "grunt-contrib-compass": "~0.7.1",
+    "time-grunt": "~0.3.1",
+    "bower": "~1.3.3"
+  }
 }
